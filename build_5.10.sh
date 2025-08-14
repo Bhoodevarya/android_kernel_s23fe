@@ -18,7 +18,7 @@ if [ ! -f ".requirements" ]; then
 fi
 
 # Create necessary directories
-mkdir -p "${KERNEL_ROOT}/out" "${KERNEL_ROOT}/build" "${HOME}/toolchains"
+mkdir -p "${KERNEL_ROOT}/build" "${HOME}/toolchains"
 
 # init clang-r416183b
 if [ ! -d "${HOME}/toolchains/clang-r416183b" ]; then
@@ -48,8 +48,6 @@ export BUILD_CC="${HOME}/toolchains/clang-r416183b/bin/clang"
 
 # Build options for the kernel
 export BUILD_OPTIONS="
--C ${KERNEL_ROOT} \
-O=${KERNEL_ROOT}/out \
 -j$(nproc) \
 ARCH=arm64 \
 LLVM=1 \
@@ -71,7 +69,7 @@ build_kernel(){
     make ${BUILD_OPTIONS} Image || exit 1
 
     # Copy the built kernel to the build directory
-    cp "${KERNEL_ROOT}/out/arch/arm64/boot/Image" "${KERNEL_ROOT}/build"
+    cp "${KERNEL_ROOT}/arch/arm64/boot/Image" "${KERNEL_ROOT}/build"
 
     echo -e "\n[INFO]: BUILD FINISHED..!"
 }
