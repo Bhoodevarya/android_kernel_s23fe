@@ -1,0 +1,37 @@
+# Build artifacts
+*.o
+*.ko
+*.mod.c
+*.cmd
+*.tmp
+*~
+.tmp_*
+
+# Kernel build outputs
+vmlinux*
+System.map
+Module.symvers
+modules.order
+modules.builtin
+modules.builtin.modinfo
+Image*
+zImage*
+
+# Generated files
+include/config/
+include/generated/
+scripts/basic/fixdep
+scripts/kconfig/conf
+scripts/mod/mk_elfconfig
+.config
+.config.old
+
+# Build directories
+out/
+build/
+toolchains/
+
+# IDE files
+.vscode/
+*.swp
+*.log
