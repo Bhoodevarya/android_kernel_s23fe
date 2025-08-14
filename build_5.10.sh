@@ -5,6 +5,10 @@ echo -e "\n[INFO]: BUILD STARTED..!\n"
 #init submodules
 git submodule init && git submodule update
 
++# Define OEM variables
+export PLATFORM_VERSION=12
+export ANDROID_MAJOR_VERSION=s
+export TARGET_SOC=s5e9925
 export KERNEL_ROOT="$(pwd)"
 export ARCH=arm64
 export KBUILD_BUILD_USER="@ravindu644"
@@ -48,6 +52,9 @@ export BUILD_CC="${HOME}/toolchains/clang-r416183b/bin/clang"
 
 # Build options for the kernel
 export BUILD_OPTIONS="
+PLATFORM_VERSION=12 \
+ANDROID_MAJOR_VERSION=s \
+TARGET_SOC=s5e9925 \
 -j$(nproc) \
 ARCH=arm64 \
 LLVM=1 \
