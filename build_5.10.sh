@@ -62,7 +62,7 @@ CLANG_TRIPLE=aarch64-linux-gnu- \
 build_kernel(){
     # Make default configuration.
     # Replace 'your_defconfig' with the name of your kernel's defconfig
-    make ${BUILD_OPTIONS} your_defconfig
+    make ${BUILD_OPTIONS} s5e9925-r11sxxx_defconfig
 
     # Configure the kernel (GUI)
     make ${BUILD_OPTIONS} menuconfig
